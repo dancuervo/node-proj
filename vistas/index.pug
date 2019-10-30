@@ -1,0 +1,17 @@
+//PLANTILLA GENERAL
+html
+    include ./includes/header.pug
+    body
+    
+        div(class="row principal u-max-full-width")
+            
+            h1(class="titulo")= titulo
+            h3(class="titulo")= mensaje
+            
+        
+        div(class="container")
+            div(class="row formulario")
+        
+            include ./includes/formulario.html
+
+    include ./includes/footer.pug
