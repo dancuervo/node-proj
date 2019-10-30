@@ -73,3 +73,7 @@
 .formulario{
     padding: 2em;
 }
+svg{
+  height: 10em;
+  width: 15em;
+}
