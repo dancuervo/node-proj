@@ -12,8 +12,12 @@ let rutas = function(app, puerto){
         res.send(`Hola, Node!<br>Escuchando puerto: ${puerto}<br>Ahora con módulos!`);
     });
 
-    app.get('/sobre', (req, res) => {
-        res.send(`Esta es la página de detalles del sitio`);
+    app.get('/about', (req, res) => {
+        res.render('about');
+    });
+    //The 404 Route (ALWAYS Keep this as the last route)
+    app.get('*', function(req, res){
+        res.status(404).render('404');
     });
 }
 

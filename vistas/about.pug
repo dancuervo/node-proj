@@ -1,0 +1,44 @@
+html
+    include ./includes//header.pug
+    include ./includes/linkedin/linkedintag.html
+    body
+        div(class="container center")
+            h1
+                |Sobre nós
+
+            div(class="row")
+                
+                div(class="six columns")
+                    p
+                        include ./includes/linkedin/daniel.html
+                        <br>
+                        |<b>Analista Desenvolvedor</b><br>
+                        |Leitor e muito curioso<br>
+                        |Faço coisas por dinheiro
+                    p
+                        a(href="/blog" about="_blank")
+                            |<h4>Tenho um Blog!</h4>
+
+                div(class="six columns")
+                    h3
+                        |Juliana Waetge
+                    p
+                        |<b>Redatora e Tradutora</b>
+                        |Ativista
+                
+            div(class="row")
+                div(class="six columns")
+                    p
+                        |Este site foi desenvolvido em como stack NodeJs, Express, MongoDB e motor de templates Pug<br>
+                        |O estilo é do framework CSS Skeleton, com fonte Raleway<br>
+                        |As ilustrações são do banco de imagens livres UnDraw<br>
+                        |Todo o conteúdo só foi possível a um grande esforço/teimosia pessoal e a ajuda
+                        | do incrível acervo de conhecimento e recursos livres acessível na Internet e
+                        | a generosidade de pessoas geniais.
+
+                div(class="six columns")
+
+            hr
+            a(class="button" href="/")= "Voltar para Home"
+
+    include ./includes/footer.pug

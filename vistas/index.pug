@@ -3,7 +3,7 @@ html
     include ./includes/header.pug
     body
         include ./includes/navbar.html    
-        div(class="row principal u-max-full-width")
+        div(class="row principal u-max-full-width" id="home")
             
             h1(class="titulo")= titulo
             h3(class="titulo")= mensaje
@@ -14,27 +14,48 @@ html
             div(class="row")
                 
                 div(class="three columns")
-                    h5= "Desenvolvimento"
+                    h5(class="center")
+                        |Desenvolvimento
                     include ./includes/img/undraw_code_typing_7jnv.svg
-                    p= "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                    p
+                        |Criação de páginas web e componentes internos. Automação de processamento de dados e armazenamento.<br>
+                        |Otimização e aceleração de carregamento de páginas. <b>SEO</b>. Melhora de rankeamento de buscadores.<br>
+                        |Tagueamento para Analytics e Remarketing Dinâmico.
+
                 div(class="three columns")
-                    h5= "Cursos"
+                    h5(class="center")
+                        |Cursos
                     include ./includes/img/undraw_teaching_f1cm.svg
-                    p= "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                    p
+                        |Entenda como funcionam as ferramentas Google Analytics, Ads, Merchant Center e Tag Manager.
+                        |Aprenda e prepare sua equipe para usar plataformas de automação e otimização de campanhas
+                        | de publicidade e turbine suas vendas e page views.
+
                 div(class="three columns")
-                    h5= "Data Science"
+                    h5(class="center")
+                        |Data Science
                     //https://undraw.co/illustrations
                     include ./includes/img/undraw_code_thinking.svg
-                    p= "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                    p
+                        |Visualize e entenda como seus usuários se comportam na sua plataforma e receba insights para aumentar
+                        | o engajamento e multiplicar suas conversões.<br>
+                        |Descubra oportunidades a partir de dashboards e relatórios sem aumentar suas despesas.
+
                 div(class="three columns")
-                    h5= "Ativismo"
+                    h5(class="center")
+                        |Ativismo
                     include ./includes/img/undraw_reminders_697p.svg
-                    p= "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                    p
+                        |A mercadoria mais valiosa hoje são os dados!<br>
+                        |Proteja os seus dados e sua privacidade. Descubra formas de obter informações
+                        | confiáveis e em tempo real para basear suas escolhas e realizar <b>fact checking</b>.<br>
+                        |Uma montanha dados é gerada a cada instante e nós tentamos separar fatos e versões. 
             hr
             div(class="row center" id="contact")
                 h5= "Entre em contato por"
                 h5= "Whatsapp"
-                include ./includes/img/undraw_begin_chat_c6pj.svg
+                a(href="https://wa.me/5511993154530/?text=Ligando do site 13ºAndar" target="_blank")
+                    include ./includes/img/undraw_begin_chat_c6pj.svg
                 hr
                 h5= "Formulário"
             include ./includes/formulario.html
