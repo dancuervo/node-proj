@@ -15,6 +15,14 @@ let rutas = function(app, puerto){
     app.get('/about', (req, res) => {
         res.render('about');
     });
+
+    app.get('/blog', (req, res) => {
+        res.render('blog');
+    });
+
+    app.get('/editor', (req, res) => {
+        res.render('blog-editor');
+    });
     //The 404 Route (ALWAYS Keep this as the last route)
     app.get('*', function(req, res){
         res.status(404).render('404');

@@ -1,23 +1,34 @@
 html
-    include ./includes//header.pug
-    include ./includes/linkedin/linkedintag.html
+    include ./includes/header.pug
+    
     body
         div(class="container center")
-            h1
-                |Sobre nós
+            h2
+                |Sobre
+            include ./includes/img/undraw_profile_6l1l.svg
 
             div(class="row")
                 
                 div(class="six columns")
+                    h3
+                        |Daniel Cenoz
                     p
-                        include ./includes/linkedin/daniel.html
                         <br>
                         |<b>Analista Desenvolvedor</b><br>
                         |Leitor e muito curioso<br>
-                        |Faço coisas por dinheiro
-                    p
-                        a(href="/blog" about="_blank")
-                            |<h4>Tenho um Blog!</h4>
+                        |Faço coisas por dinheiro<br>
+                        hr
+                        a(href="https://www.linkedin.com/in/danielcenoz/" target="_blank" class="button")
+                            b
+                                |LinkedIn
+                        
+                        a(href="https://twitter.com/danielcenoz" target="_blank" class="button")
+                            b
+                                |&nbsp;Twitter&nbsp;
+                        
+                        a(href="/blog" target="_blank" class="button")
+                            b
+                                |&nbsp;Blog!&nbsp;&nbsp;
 
                 div(class="six columns")
                     h3
@@ -25,19 +36,26 @@ html
                     p
                         |<b>Redatora e Tradutora</b>
                         |Ativista
-                
+            hr    
             div(class="row")
+                div(class="three columns")
+                    p
+                        |&nbsp;
                 div(class="six columns")
+                    h4
+                        |Colophon
                     p
                         |Este site foi desenvolvido sobre stack NodeJs, Express, MongoDB e motor de templates Pug<br>
                         |O estilo é do framework CSS Skeleton, com fonte Raleway<br>
                         |As ilustrações são do banco de imagens livres UnDraw<br>
                         |Todo o conteúdo só foi possível a um grande esforço/teimosia pessoal e a ajuda
-                        | do incrível acervo de conhecimento e recursos livres acessível na Internet e
+                        | do incrível acervo de conhecimento e recursos livres acessível na Internet
+                        | (estou olhando pra você, Fundação Mozilla) e
                         | a generosidade de pessoas geniais.<br>
                         |Obrigado!
-
-                div(class="six columns")
+                div(class="three columns")
+                    p
+                        |&nbsp;
 
             hr
             a(class="button" href="/")= "Voltar para Home"

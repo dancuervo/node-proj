@@ -1,14 +1,18 @@
 html
     include ./includes//header.pug
     body
+        include ./includes/navbar.html
         div(class="container center")
             div(class="row")
                 div(class="three columns")
                 div(class="three columns")
-                    h2= "Ainda não tem nada aqui :/"
+                    h1
+                        |404
+                    h2
+                        |Ainda não tem nada aqui :/
                     include ./includes/img/undraw_warning_cyit.svg
                     hr
                     a(class="button" href="/")= "Home"
                 div(class="three columns")
-        
+   
     include ./includes/footer.pug

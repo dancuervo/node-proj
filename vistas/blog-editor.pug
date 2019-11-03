@@ -1,0 +1,26 @@
+html
+    include ./includes/header.pug
+    body
+        include ./includes/navbar.html
+
+        div(class="row")
+            div(class="two columns")
+                h3
+                    a(class="button" href="/")
+                        |LOGOUT<br>
+                    h4
+                        |Futura área interna
+                        hr
+                        |Usuario
+            div(class="eight columns")
+                h1(class="center")
+                    |Editor
+                include ./includes/tools/html_editor.html
+            div(class="two columns")
+                h3
+                    |SEO<br>
+                    |Tags más usadas
+                hr
+                a(class="button" href="/")= "Home"
+
+        include ./includes/footer.pug
