@@ -1,12 +1,14 @@
-let rutas = function(app, puerto){
+
+let controlador = require('../controlador/controlador');
+let contenidoIndex = controlador.Index;
+
+let rutas = function(app, puerto, controlador){
     
     app.get('/', (req, res) => {
-        res.render('index', {
-            title: '13º Andar',
-            titulo: '13º Andar',
-            mensaje: 'Desenvolvimento Web'
+        console.log(contenidoIndex);
+
+        res.render('index', contenidoIndex)
         });
-    });
 
     app.get('/prueba', (req, res) => {
         res.send(`Hola, Node!<br>Escuchando puerto: ${puerto}<br>Ahora con módulos!`);

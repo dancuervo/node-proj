@@ -14,42 +14,29 @@ html
             div(class="row")
                 
                 div(class="three columns")
-                    h5(class="center")
-                        |Desenvolvimento
+                    h5(class="center")= columna_1.titulo
+                        
                     include ./includes/img/undraw_code_typing_7jnv.svg
-                    p
-                        |Criação de páginas web e componentes internos. Automação de processamento de dados e armazenamento.<br>
-                        |Otimização e aceleração de carregamento de páginas. <b>SEO</b>. Melhora de rankeamento de buscadores.<br>
-                        |Tagueamento para Analytics e Remarketing Dinâmico.
+                    p= columna_1.cuerpo
 
                 div(class="three columns")
-                    h5(class="center")
-                        |Cursos
+                    h5(class="center")= columna_2.titulo
+                        
                     include ./includes/img/undraw_teaching_f1cm.svg
-                    p
-                        |Entenda como funcionam as ferramentas Google Analytics, Ads, Merchant Center e Tag Manager.
-                        |Aprenda e prepare sua equipe para usar plataformas de automação e otimização de campanhas
-                        | de publicidade e turbine suas vendas e page views.
+                    p= columna_2.cuerpo
 
                 div(class="three columns")
-                    h5(class="center")
-                        |Data Science
+                    h5(class="center")= columna_3.titulo
+                        
                     //https://undraw.co/illustrations
                     include ./includes/img/undraw_code_thinking.svg
-                    p
-                        |Visualize e entenda como seus usuários se comportam na sua plataforma e receba insights para aumentar
-                        | o engajamento e multiplicar suas conversões.<br>
-                        |Descubra oportunidades a partir de dashboards e relatórios sem aumentar suas despesas.
+                    p= columna_3.cuerpo
 
                 div(class="three columns")
-                    h5(class="center")
-                        |Ativismo
+                    h5(class="center")= columna_4.titulo
+
                     include ./includes/img/undraw_reminders_697p.svg
-                    p
-                        |A mercadoria mais valiosa hoje são os dados!<br>
-                        |Proteja os seus dados e sua privacidade. Descubra formas de obter informações
-                        | confiáveis e em tempo real para basear suas escolhas e realizar <b>fact checking</b>.<br>
-                        |Uma montanha dados é gerada a cada instante e nós tentamos separar fatos e versões. 
+                    p= columna_4.cuerpo
             hr
             div(class="row center" id="contact")
                 h5= "Entre em contato por"
