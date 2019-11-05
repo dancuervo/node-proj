@@ -8,7 +8,7 @@ module.exports.Index = {
                 columna_1:{
                     titulo: "Desenvolvimento",
                     cuerpo: "Criação de páginas web e componentes internos. Automação de processamento de dados e armazenamento. Otimização e aceleração de carregamento de páginas. SEO. Melhora de rankeamento de buscadores. Tagueamento para Analytics e Remarketing Dinâmico.",
-                    imagen: ".undraw_code_typing_7jnv.svg"
+                    imagen: "undraw_code_typing_7jnv.svg"
                 },
                 columna_2:{
                     titulo: "Cursos",
