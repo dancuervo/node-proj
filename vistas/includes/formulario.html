@@ -1,28 +1,63 @@
 <!-- The above form looks like this -->
 <form>
-    <div class="row">
-      <div class="six columns">
-        <label for="exampleEmailInput">Seu email</label>
-        <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
-      </div>
-      <div class="six columns">
-        <label for="exampleRecipientInput">Em que podemos ajudar?</label>
-        <select class="u-full-width" id="exampleRecipientInput">
-          <option value="Option 1">Desenvolvimento</option>
-          <option value="Option 2">Cursos</option>
-          <option value="Option 3">Tradução</option>
-        </select>
-      </div>
+  <div class="row">
+    <div class="six columns">
+      <label for="exampleEmailInput">Seu email</label>
+      <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
     </div>
-    <label for="exampleMessage">Mensagem</label>
-    <textarea class="u-full-width" placeholder="Oi!" id="exampleMessage"></textarea>
-    <label class="example-send-yourself-copy">
-      <input type="checkbox">
-      <span class="label-body">Mande-me uma cópia!</span>
-    </label>
-    <input class="button-primary" type="submit" value="Enviar">
-  </form>
-  
-  <!-- Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
-  
-  <!-- Note: The class .u-full-width is just a utility class shorthand for width: 100% -->
+    <div class="six columns">
+      <label for="exampleRecipientInput">Em que podemos ajudar?</label>
+      <select class="u-full-width" id="exampleRecipientInput">
+        <option value="Option 1">Desenvolvimento</option>
+        <option value="Option 2">Cursos</option>
+        <option value="Option 3">Tradução</option>
+      </select>
+    </div>
+  </div>
+  <label for="exampleMessage">Mensagem</label>
+  <textarea class="u-full-width" placeholder="Oi!" id="exampleMessage"></textarea>
+  <input class="button-primary" type="submit" value="Enviar">
+</form>
+<script>
+  //script para enviar datos de form con fetch
+  //function
+  async function enviaMensaje(mensaje) {
+    let url = '/mensajes'
+
+    await fetch(url,
+      {
+        method: 'POST',
+        body: JSON.stringify(mensaje),  // body data type must match "Content-Type" header
+        headers: { 'Content-Type': 'application/json' } //IMPORTANT!!!
+      }).then(console.log('datos enviados por formulario:' + JSON.stringify(mensaje)))
+      .then(
+        (respuesta) => {
+          console.log("Status: código " + respuesta.status);
+          respuesta.json().then((respuesta) => { console.log('Mensaje respuesta: ' + respuesta.resultado) })
+        })
+  }
+
+
+  //boton
+  let formulario = document.querySelector('form');
+  //accion boton
+  formulario.addEventListener('submit', (event) => {
+    event.preventDefault();
+    //form
+    //campos formulario
+    //cuerpo email
+    let mensaje = {
+      "email": formulario[0].value,
+      "asunto": formulario[1].value,
+      "cuerpo": formulario[2].value
+    }
+    //fetch datos
+    enviaMensaje(mensaje);
+  });
+
+    //
+</script>
+
+<!-- Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
+
+<!-- Note: The class .u-full-width is just a utility class shorthand for width: 100% -->

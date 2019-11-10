@@ -8,10 +8,12 @@ let rutas = function(app, puerto, controlador){
         console.log(contenidoIndex);
 
         res.render('index', contenidoIndex)
-        });
+    });
 
-    app.get('/prueba', (req, res) => {
-        res.send(`Hola, Node!<br>Escuchando puerto: ${puerto}<br>Ahora con módulos!`);
+    app.post('/mensajes', (req, res) => {
+        let mensaje = req.body;
+        console.log("Mensaje recibido: " + JSON.stringify(mensaje));
+        res.json({resultado: 'Se recibieron los datos post del formulario!'})
     });
 
     app.get('/about', (req, res) => {
