@@ -14,7 +14,12 @@ html
                 |Conteúdo em migração!
             br
             a(class="button" href="/")= "Home"
+            hr
+                each val in entradas
+                    li= val.post
+                    li= val.autor
+                
 
 
     include ./includes/footer.pug
-            include ./includes/navbar.js    
+        include ./includes/navbar.js    
