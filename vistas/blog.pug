@@ -4,20 +4,19 @@ html
         
         include ./includes/navbar.html
         div(class="container center")
-            div(class="row")
+            div(class="row" id="top")
             h1
-                |Blog
+                |Escrevendo no 13º Andar
             hr
             include ./includes/img/undraw_add_file_4gfw.svg
-
-            h3
-                |Conteúdo em migração!
-            br
-            a(class="button" href="/")= "Home"
             hr
-                each val in entradas
-                    li= val.post
-                    li= val.autor
+            each val in entradas
+                div(class='blogpost')
+                    |!{val.post} 
+                    
+                    |!{val.autor}
+            hr
+            a(class="button" href="#top")= "Home"
                 
 
 

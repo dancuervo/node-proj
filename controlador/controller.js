@@ -24,7 +24,7 @@ let blogNewPost = (req, res) => {
 let blogEntries = (req, res) => {
     //consulta entradas del blog en BD
     articulo.find({}, (err, lista) => {
-        console.log(`Resultado: ${lista}`);
+        //console.log(`Resultado: ${lista}`);
         res.render('blog', {entradas:lista});
 
     });   

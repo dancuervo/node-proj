@@ -80,3 +80,13 @@ svg{
 .center{
   text-align: center;
 }
+/*BLOG*/
+.blogpost{
+  text-align: left;
+  /*background-color:#F5FFFA;*/
+  color: #696969;
+  font-size: 1.5em;
+  padding: 1em;
+  box-shadow: 1px 1px 3px #888888;
+  border-radius: 10px;
+}
