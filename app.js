@@ -1,12 +1,12 @@
 //require de servidor.js
-const servidor = require('./servidor/servidor');
+const servidor = require('./config/servidor');
 const app = servidor.servidor();
 const puerto = servidor.puerto();
-const mongoose = require('mongoose');
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
+
+//MOONGOSE
+const db = require('./config/mongoose');
+const mongoose = db.mongoose;
+const DBHOST = db.DBHOST;
 
 //fetch
 const fetch = require('node-fetch');
@@ -24,10 +24,10 @@ app.set('views', './vistas');
 
 //rutas
 const rutas = require('./rutas/rutas');
-rutas.rutas(app, puerto);
+rutas(app, puerto);
 
 //mongoose connection
-mongoose.connect('mongodb://localhost:27017/blog', (err, res) => {
+mongoose.connect(DBHOST, (err, res) => {
     if (err){
         console.log(`Error al conectar a BD: ${err}`);
     }

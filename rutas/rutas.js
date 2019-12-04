@@ -2,7 +2,7 @@
 let texto = require('../vistas/textos');
 //modelos BD
 //Controladores
-let blogControl = require('../controlador/controller');
+let blogControl = require('../controller/blogController');
 
 let rutas = function(app, puerto, controlador){
     
@@ -11,8 +11,7 @@ let rutas = function(app, puerto, controlador){
     });
 
     app.post('/mensajes', (req, res) => {
-        let mensaje = req.body;
-        console.log("Mensaje recibido: " + mensaje);
+        console.log("Mensaje recibido: " + req.body);
         res.json({resultado: 'Se recibieron los datos post del formulario!'})
     });
 
@@ -33,4 +32,4 @@ let rutas = function(app, puerto, controlador){
     });
 }
 
-module.exports.rutas = rutas;
+module.exports = rutas;
