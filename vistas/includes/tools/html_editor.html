@@ -172,7 +172,8 @@
                 if(respuesta.status == 200 ){
                   estado.innerHTML = "Enviado!"
                   estado.style.backgroundColor = 'green';
-                  estado.style.color = 'white';  
+                  estado.style.color = 'white';
+                  document.querySelector('body > div.row > div.eight.columns > form > h4').innerHTML = 'Guardado!'
                 } else{
                   estado.innerHTML = "Falló!"
                   estado.style.backgroundColor = 'red';

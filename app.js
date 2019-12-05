@@ -2,12 +2,30 @@
 const servidor = require('./config/servidor');
 const app = servidor.servidor();
 const puerto = servidor.puerto();
+const fs = require('fs');
+
+const dotenv = (envFile) => {
+    //dotenv
+require('dotenv').config({
+    path: envFile
+});
+}
+let connectionString;
+try {
+    if (fs.existsSync('./.env')) {
+        const envFile = './.env';
+        dotenv(envFile);
+        connectionString = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`;
+    } else {
+        const envFile = './.env-dev';
+        dotenv(envFile);
+        connectionString = process.env.DB_HOST_LOCAL;
+    }
+} catch(error) {console.log(error)}
 
 //MOONGOSE
 const db = require('./config/mongoose');
 const mongoose = db.mongoose;
-const localString = db.DBHOST;
-const remoteString = db.remoteString;
 
 //fetch
 const fetch = require('node-fetch');
@@ -28,13 +46,12 @@ const rutas = require('./rutas/rutas');
 rutas(app, puerto);
 
 //MONGOOSE CONNECTION
-//mongoose.connect(remoteString, (err, res) => {
-mongoose.connect(localString, (err, res) => {
-    if (err){
-        console.log(`Error al conectar a BD: ${err}`);
+mongoose.connect(connectionString + '/13andar', (err, res) => {
+    if (err) {
+        return console.log(`Error al conectar a BD: ${err}`);
     }
     console.log('Conectado a BD!')
-    app.listen(puerto, (req, res)=>{
+    app.listen(puerto, (req, res) => {
         console.log(`Servidor arriba!\nEscuchando puerto ${puerto}`);
     });
 });

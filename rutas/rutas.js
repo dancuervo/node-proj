@@ -1,5 +1,5 @@
 //textos persistentes
-let texto = require('../vistas/textos');
+let texto = require('../vistas/includes/textos');
 //modelos BD
 //Controladores
 let blogControl = require('../controller/blogController');

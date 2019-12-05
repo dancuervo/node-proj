@@ -10,12 +10,13 @@ html
             hr
             include ./includes/img/undraw_add_file_4gfw.svg
             hr
-            if!entradas
+            if entradas
                 each val in entradas
                     div(class='blogpost')
-                        |!{val.post} 
-                        
-                        |!{val.autor}
+                        |Post: !{val.post} 
+                        hr
+                        - var data = val.fecha
+                        |!{val.autor} #{data.getDate()} #{data.getUTCMonth()} #{data.getFullYear()}
             
             else
                 |<div class="blogpost">
