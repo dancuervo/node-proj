@@ -23,7 +23,7 @@ let blogEntries = (req, res) => {
     articulo.find({}, (err, lista) => {
         //console.log(`Resultado: ${lista}`);
         if(err){
-            let texto = require('../vistas/textos');
+            let texto = require('../vistas/includes/textos');
             let lista = [ texto.blogDefault ]
             res.render('blog', {entradas:lista});    
         } else{

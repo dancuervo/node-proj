@@ -7,18 +7,23 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.set('bufferCommands', false);
 //conexión a BD:
 //local
-const DBHOST = 'mongodb://localhost:27017/blog';
+const DBHOST = 'mongodb://localhost:27017';
 /*
 const remote = {
-    DBHOST = 'mongodb.13andar.com/blog',
-    DBUSER : '13andar01',
+    DBHOST : '*********',
+    DBUSER : '*********',
     DBPASS : '*********'
 }
 */
-
-//mongoose.connect(`mongodb://${remote.DBUSER}:${remote.DBPASS}@${remote.DBHOST}`);
+//remote connection string
+/*
+mongoose.connect(`mongodb://${remote.DBUSER}:${remote.DBPASS}@${remote.DBHOST}`);
+mongoose.connect('mongodb://13andar01:*********@mongodb.13andar.com/blog');
+*/
+const remoteString = 'mongodb://*********:*********@*********';
 
 module.exports = {
     mongoose,
-    DBHOST
+    DBHOST,
+    remoteString
 }

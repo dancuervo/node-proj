@@ -6,7 +6,8 @@ const puerto = servidor.puerto();
 //MOONGOSE
 const db = require('./config/mongoose');
 const mongoose = db.mongoose;
-const DBHOST = db.DBHOST;
+const localString = db.DBHOST;
+const remoteString = db.remoteString;
 
 //fetch
 const fetch = require('node-fetch');
@@ -26,13 +27,13 @@ app.set('views', './vistas');
 const rutas = require('./rutas/rutas');
 rutas(app, puerto);
 
-//mongoose connection
-mongoose.connect(DBHOST, (err, res) => {
+//MONGOOSE CONNECTION
+//mongoose.connect(remoteString, (err, res) => {
+mongoose.connect(localString, (err, res) => {
     if (err){
         console.log(`Error al conectar a BD: ${err}`);
     }
     console.log('Conectado a BD!')
-    //listen
     app.listen(puerto, (req, res)=>{
         console.log(`Servidor arriba!\nEscuchando puerto ${puerto}`);
     });
