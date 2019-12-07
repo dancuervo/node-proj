@@ -46,12 +46,14 @@ const rutas = require('./rutas/rutas');
 rutas(app, puerto);
 
 //MONGOOSE CONNECTION
-mongoose.connect(connectionString + '/13andar', (err, res) => {
-    if (err) {
-        return console.log(`Error al conectar a BD: ${err}`);
-    }
-    console.log('Conectado a BD!')
-    app.listen(puerto, (req, res) => {
-        console.log(`Servidor arriba!\nEscuchando puerto ${puerto}`);
-    });
-});
+
+mongoose.connect(connectionString, {connectTimeoutMS: 1000})
+    .then(
+        ()=>{ console.log(`Conectado a BD!`);
+        app.listen(puerto, (req, res) => {
+            console.log(`Servidor arriba!\nEscuchando puerto ${puerto}`);
+        });
+    },
+        (error)=>{
+            console.log(`Error al conectar: ${error}. No conectado a ${connectionString}!`)
+    })
