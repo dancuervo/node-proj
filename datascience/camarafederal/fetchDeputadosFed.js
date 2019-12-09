@@ -5,9 +5,7 @@ const fetch = require('node-fetch');
 //let urlDeputadosFed = 'https://www.camara.leg.br/SitCamaraWS/Deputados.asmx/ObterDeputados';
 //let url;
 const fetchDeputadosFed = fetch(url)
-    .then((resultado) => 
-        resultado.text()
-        )
+    .then( (resultado) => resultado.text() )
     .then(
         (resultado) => {
             //string titulo destino
@@ -28,11 +26,8 @@ const fetchDeputadosFed = fetch(url)
             xmljs(title);
 
     })
-    .catch(
-        (error)=>{
-            console.log(error);
-        }
-    );
+    .catch( (error)=>{ console.log(error); });
+    
 module.exports = {
     fetchDeputadosFed
 }

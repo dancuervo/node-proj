@@ -1,0 +1,38 @@
+html
+    include ./includes/header.pug
+    
+    body
+        include ./includes/navbar.html
+        div(class='container')
+            div(class="row principal u-max-full-width" id="home")
+                h1(class='titulo')
+                    |Seus Representantes
+            div(class='row u-max-full-width center')
+                div(class='three columns')
+                    h3
+                        |Câmara Federal
+                    |A Câmara Baixa do Congresso Nacional do Brasil é constituida de #{datos.numDeputados} eleitos por voto proporcional
+                div(class='four columns')
+                    h3(class='center')
+                        |Partidos
+                    
+                div(class='five columns')
+                    h3(class='center')
+                        |Deputados
+                    p
+                        |Os atuais deputados pertencem à 56ª Legislatura do Congresso Nacional (2019 a 2023)
+            hr
+            div(class='row u-max-full-width')
+                h1(class="center")
+                    |Partidos
+            
+            div(class="ct-chart ct-perfect-fourth" style="border: 1px solid #ccc")
+        include ./includes/tools/charts-chartist-js.html
+        
+        script
+            
+            |new Chartist.Pie('.ct-chart',
+            |   { series: [#{partidos}] },
+            |   {donut: true, donutWidth: 120, startAngle: 270, total: 120, showLabel: true })
+        
+        include ./includes/footer.pug
