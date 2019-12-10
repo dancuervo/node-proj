@@ -7,34 +7,96 @@ html
             div(class="row principal u-max-full-width" id="home")
                 h1(class='titulo')
                     |Seus Representantes
-            div(class='row u-max-full-width center')
-                div(class='three columns')
-                    h3
-                        |Câmara Federal
-                    |A Câmara Baixa do Congresso Nacional do Brasil é constituida de 
-                    span(class="default") #{datos.numDeputados} 
-                    | eleitos por voto proporcional
+            div(class='row u-max-full-width')
                 div(class='four columns')
-                    h3(class='center')
-                        |Partidos
+                    h3
+                        |A 
+                        span(class='default') Câmara Federal
+                        |, ou Cámara Baixa do Congresso Nacional do Brasil
+                        | é constituida de 
+                        span(class="default") #{datos.numDeputados} 
+                        | deputados eleitos por voto proporcional.<br> <hr>Os atuais deputados pertencem à 
+                        span(class='default') 56ª 
+                        |Legislatura do Congresso Nacional (2019 a 2023)
                     
-                div(class='five columns')
-                    h3(class='center')
-                        |Deputados
-                    p
-                        |Os atuais deputados pertencem à 56ª Legislatura do Congresso Nacional (2019 a 2023)
+                div(class='eight columns')
+                    canvas(id='deputados-genero')
+                    br
+                    br
+                    br
+                    h4(class='center')
+                        |Os Deputados representam, ou deveriam representar, o povo brasileiro, entretanto, a Cãmara conta com 
+                        span(class='default') #{genero.Masc} 
+                        | deputados e 
+                        span(class='danger') #{genero.Fem} 
+                        |deputadas.
+                    
             hr
             div(class='row u-max-full-width')
-                h1(class="center")
-                    |Partidos
+                h2
+                    span(class='default')
+                        |Atualmente há 
+                        span(class='danger') #{numPartidos} partidos 
+                        | representados na Câmara Federal
             
-            div(class="ct-chart ct-perfect-fourth" style="border: 1px solid #ccc")
-        include ./includes/tools/charts-chartist-js.html
+                div
+                    canvas(id='pesoPartidos')
+
+        
+        
+        
+        include ./includes/tools/charts-chart-js.html
         
         script
-            
-            |new Chartist.Pie('.ct-chart',
-            |   { series: [#{partidos}] },
-            |   {donut: true, donutWidth: 120, startAngle: 270, total: 120, showLabel: true })
-        
-        include ./includes/footer.pug
+            |   //partidos da camara
+            |    var ctx = document.getElementById('pesoPartidos').getContext('2d');
+            |    var piechart = new Chart(ctx, {
+            |        // The type of chart we want to create
+            |        type: 'doughnut',
+            |        
+            |        // labels = nomePartidos
+            |        // data = pesoPartidos
+            |        // The data for our dataset
+            |
+            |        data: {
+            |
+            |            labels: !{labelPartido},
+            |            datasets: [{
+            |                label: 'My First dataset',
+            |                backgroundColor: !{colors},
+            |                borderColor: !{colors},
+            |                data: [#{pesoPartido}]
+            |            }]
+            |        },
+            |
+            |        // Configuration options go here
+            |        options: {}
+            |    });
+            |//generos da camara
+            |   //genero na camara
+            |   
+            |    var ctx = document.getElementById('deputados-genero').getContext('2d');
+            |    var piechart = new Chart(ctx, {
+            |        // The type of chart we want to create
+            |        type: 'doughnut',
+            |        
+            |        // labels = nomePartidos
+            |        // data = pesoPartidos
+            |        // The data for our dataset
+            |
+            |        data: {
+            |
+            |            labels: ['Masculino','Feminino'],
+            |            datasets: [{
+            |                label: 'My First dataset',
+            |                backgroundColor: ['#4054A0','#F3617E'],
+            |                borderColor: ['#4054A0','#F3617E'],
+            |                data: [#{genero.Masc}, #{genero.Fem}]
+            |            }]
+            |        },
+            |
+            |        // Configuration options go here
+            |        options: {
+            |            legend: { display: false}   
+            |            }
+            |    });

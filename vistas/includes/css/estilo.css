@@ -92,6 +92,7 @@ svg{
 }
 /*COLORS*/
 .default{
+  font-size: 1.5em;
   font-weight: bold;
   color: #4054A0;
 }
@@ -101,6 +102,7 @@ svg{
   text-decoration-color: #4054A0;
 }
 .danger{
+  font-size: 1.5em;
   font-weight: bold;
   color : #F3617E;
 }
