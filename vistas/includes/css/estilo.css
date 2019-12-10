@@ -90,3 +90,22 @@ svg{
   box-shadow: 1px 1px 3px #888888;
   border-radius: 10px;
 }
+/*COLORS*/
+.default{
+  font-weight: bold;
+  color: #4054A0;
+}
+.default-underline{
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: #4054A0;
+}
+.danger{
+  font-weight: bold;
+  color : #F3617E;
+}
+.danger-underline{
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: #F3617E;
+}

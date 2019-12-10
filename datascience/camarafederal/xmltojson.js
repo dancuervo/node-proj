@@ -1,4 +1,4 @@
-//recibde un xml y lo convierte a json
+//recibde un xml y lo convierte a jsonc
 //envía el resultado a jsontodb.js
 const parseString = require('xml2js').parseString;
 const fs = require('fs');
