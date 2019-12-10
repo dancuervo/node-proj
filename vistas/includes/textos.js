@@ -22,7 +22,7 @@
                 },
                 columna_4:{
                     titulo: "Ativismo",
-                    cuerpo: "A mercadoria mais valiosa hoje são os dados! Proteja os seus dados e sua privacidade. Descubra formas de obter informações confiáveis e em tempo real para basear suas escolhas e realizar fact checking. Uma montanha dados é gerada a cada instante e nós tentamos separar fatos e versões.",
+                    cuerpo: "Proteja os seus dados e sua privacidade. Descubra formas de obter informações confiáveis e em tempo real para basear suas escolhas e realizar fact checking. Ler dados diz muito sobre nosso mundo e pode nos chocar. Clique aqui para ver!",
                     imagen: "undraw_reminders_697p.svg"
                 }
             };
