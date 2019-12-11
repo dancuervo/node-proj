@@ -26,9 +26,9 @@ html
                     br
                     h4(class='center')
                         |Os Deputados representam, ou deveriam representar, o povo brasileiro, entretanto, a Cãmara conta com 
-                        span(class='default') #{genero.Masc} 
+                        span(class='default') #{datos.deputados.sexo.masculino} 
                         | deputados e 
-                        span(class='danger') #{genero.Fem} 
+                        span(class='danger') #{datos.deputados.sexo.feminino} 
                         |deputadas.
                     
             hr
@@ -36,7 +36,7 @@ html
                 h2
                     span(class='default')
                         |Atualmente há 
-                        span(class='danger') #{numPartidos} partidos 
+                        span(class='danger') #{datos.deputados.numPartidos} partidos 
                         | representados na Câmara Federal
             
                 div
@@ -91,7 +91,7 @@ html
             |                label: 'My First dataset',
             |                backgroundColor: ['#4054A0','#F3617E'],
             |                borderColor: ['#4054A0','#F3617E'],
-            |                data: [#{genero.Masc}, #{genero.Fem}]
+            |                data: [#{datos.deputados.sexo.masculino}, #{datos.deputados.sexo.feminino}]
             |            }]
             |        },
             |
