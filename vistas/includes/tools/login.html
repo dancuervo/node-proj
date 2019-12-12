@@ -1,0 +1,62 @@
+<!--form login-->
+<form id="login" >
+    <div class="row center">
+        <div class="four columns">&#8205;</div>
+        <div class="four columns">
+            <label for="Login Email">Email</label>
+            <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="login-mail">
+            
+            <label for="Senha">Senha</label>
+            <input class="u-full-width" type="password" placeholder="senha" id="login-pass">
+            <input class="button-primary" type="submit" value="Entrar">
+        </div>
+        <div class="four columns">&#8205;</div>
+    </div>
+</form>
+<script>
+    //script para enviar datos de form con fetch
+    //function
+    async function enviaMensaje(mensaje) {
+        let url = '/login'
+
+        await fetch(url,
+            {
+                method: 'POST',
+                body: JSON.stringify(mensaje),  // body data type must match "Content-Type" header
+                headers: { 'Content-Type': 'application/json' } //IMPORTANT!!!
+            }).then(console.log('datos login enviados por formulario:' + JSON.stringify(mensaje)))
+            .then(
+                (respuesta) => {
+                    console.log("Login status: código " + respuesta.status);
+                    respuesta.json().then((respuesta) => { console.log('Mensaje respuesta: ' + respuesta.resultado) })
+                })
+    }
+
+    //boton
+    let formulario = document.querySelector('#login');
+    //accion boton
+    formulario.addEventListener('submit', (event) => {
+        event.preventDefault();
+        //form
+        //campos formulario
+        let mensaje = {
+            "email": formulario[0].value,
+            "pass": formulario[1].value,
+        }
+        //fetch datos
+        enviaMensaje(mensaje);
+    });
+
+//LOGIN TOGGLE
+function myFunction() {
+  var x = document.getElementById("login-div");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+let btn = document.querySelector('#login-toggle');
+let toggle = btn.addEventListener('click', myFunction);
+
+</script>

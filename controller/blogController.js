@@ -21,13 +21,14 @@ let blogNewPost = (req, res) => {
 let blogEntries = (req, res) => {
     //consulta entradas del blog en BD
     articulo.find({}, (err, resultado) => {
-        var lista;
-        if(err){
+        let lista;
+        if(err) {
             let texto = require('../vistas/includes/textos');
             let defaultBlog = [texto.blogDefault];
             res.render('blog', {entradas:defaultBlog});    
         } else{
             lista = resultado;
+            //console.log(lista)
             res.render('blog', {entradas:lista});
         }
     });   

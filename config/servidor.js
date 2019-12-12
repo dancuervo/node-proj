@@ -1,11 +1,12 @@
 //conf servidor
-const servidor = function(){
+
+const servidor = () => {
     const express = require('express');
     const app = express();
     return app;
 }
 
-const puerto = function(){
+const puerto = () => {
     const puerto = 21113;
     return puerto;
 }

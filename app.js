@@ -1,7 +1,9 @@
     //require de servidor.js
+
     const servidor = require('./config/servidor');
     const app = servidor.servidor();
     const puerto = servidor.puerto();
+
     const fs = require('fs');
      
     const dotenv = (envFile) => {
@@ -10,6 +12,7 @@
         path: envFile
     });
     }
+
     let connectionString;
     try {
         if (fs.existsSync('./.env')) {
@@ -36,11 +39,16 @@
     app.use(bodyParser.json());
     //support parsing of application/x-www-form-urlencoded post data
     app.use(bodyParser.urlencoded({ extended: true }));
+    //staticos
+    const e = require('express');
+    app.use(e.static('./vistas/includes'));
      
     //configuraciones de template
     app.set('view engine', 'pug');
     app.set('views', './vistas');
-     
+    
+    
+
     //rutas
     const rutas = require('./rutas/rutas');
     rutas(app, puerto);

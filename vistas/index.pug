@@ -2,13 +2,15 @@
 html
     include ./includes/header.pug
     body
-        include ./includes/navbar.html    
+        include ./includes/navbar.html
+        div(class="row principal u-max-full-width" style="display:none" id='login-div')
+            include ./includes/tools/login.html
+
         div(class="row principal u-max-full-width" id="home")
             
             h1(class="titulo")= titulo
             h3(class="titulo")= mensaje
-            
-        
+                    
         div(class="container" id="service")
             div(class="row formulario")
             div(class="row")
@@ -16,26 +18,27 @@ html
                 div(class="three columns")
                     h5(class="center")= columna_1.titulo
 
-                    include ./includes/img/undraw_code_typing_7jnv.svg
+                    img(src="./img/undraw_code_typing_7jnv.svg", class="undraw")
+                    
                     p= columna_1.cuerpo
 
                 div(class="three columns")
                     h5(class="center")= columna_2.titulo
-                        
-                    include ./includes/img/undraw_teaching_f1cm.svg
+                    
+                    img(src="./img/undraw_teaching_f1cm.svg", class="undraw")
                     p= columna_2.cuerpo
 
                 div(class="three columns")
                     h5(class="center")= columna_3.titulo
                         
                     //https://undraw.co/illustrations
-                    include ./includes/img/undraw_code_thinking.svg
+                    img(src="./img/undraw_code_thinking.svg", class="undraw")
                     p= columna_3.cuerpo
 
                 div(class="three columns")
                     h5(class="center")= columna_4.titulo
 
-                    include ./includes/img/undraw_reminders_697p.svg
+                    img(src="./img/undraw_reminders_697p.svg", class="undraw")
                     p= columna_4.cuerpo
                     a(href='https://www.13andar.com/panel' target='_blank')
                         button
@@ -45,7 +48,7 @@ html
                 h5= "Entre em contato por"
                 h5= "Whatsapp"
                 a(href="https://wa.me/5511993154530/?text=Ligando do site 13ºAndar" target="_blank")
-                    include ./includes/img/undraw_begin_chat_c6pj.svg
+                    img(src="./img/undraw_begin_chat_c6pj.svg", class="undraw")
                 hr
                 h5= "Formulário"
             include ./includes/formulario.html

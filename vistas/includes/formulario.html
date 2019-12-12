@@ -1,5 +1,6 @@
-<!-- The above form looks like this -->
-<form>
+<div id="login-div">
+  <!-- The above form looks like this -->
+<form id="contato">
   <div class="row">
     <div class="six columns">
       <label for="exampleEmailInput">Seu email</label>
@@ -10,7 +11,7 @@
       <select class="u-full-width" id="exampleRecipientInput">
         <option value="Option 1">Desenvolvimento</option>
         <option value="Option 2">Cursos</option>
-        <option value="Option 3">Tradução</option>
+        <option value="Option 3">Tradução - Revisão - Legendagem</option>
       </select>
     </div>
   </div>
@@ -39,7 +40,7 @@
 
 
   //boton
-  let formulario = document.querySelector('form');
+  let formulario = document.querySelector('#contato');
   //accion boton
   formulario.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -61,3 +62,4 @@
 <!-- Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
 
 <!-- Note: The class .u-full-width is just a utility class shorthand for width: 100% -->
+</div>

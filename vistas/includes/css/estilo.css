@@ -73,7 +73,11 @@
 .formulario{
     padding: 2em;
 }
-svg{
+/*IMAGES*/
+.imgage-rounded{
+  border-radius: 25%;
+}
+svg, .undraw{
   height: 10em;
   width: 15em;
 }
