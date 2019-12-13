@@ -1,37 +1,35 @@
 //funciones de control de la app
-//requires
-const articulo = require('../models/entradaBlog');
+//requires Blog Model
+const Post = require('../models/entradaBlog');
+
 
 let blogNewPost = (req, res) => {
-        
-        let Articulo = new articulo();
-        Articulo.autor = req.body.autor,
-        Articulo.fecha = req.body.fecha,
-        Articulo.post = req.body.post,
-        Articulo.tags = req.body.tags
-        
-        Articulo.save(function(err, nuevoArticulo){
+    console.log(req.body);
+    let post = new Post();
+
+        post.author = req.body.autor,
+        post.date = new Date(),
+        post.title = req.body.titulo,
+        post.post = req.body.post,
+        post.tags = req.body.tags
+        console.log(post);
+        post.save((err) => {
             if(err) return console.error(err);
           });
 
-        console.log('nueva entrada guardada!');
         res.send(res.status);
 }
 
 let blogEntries = (req, res) => {
     //consulta entradas del blog en BD
-    articulo.find({}, (err, resultado) => {
-        let lista;
-        if(err) {
-            let texto = require('../vistas/includes/textos');
-            let defaultBlog = [texto.blogDefault];
-            res.render('blog', {entradas:defaultBlog});    
-        } else{
-            lista = resultado;
-            //console.log(lista)
-            res.render('blog', {entradas:lista});
-        }
-    });   
+    //let post = new Post();
+    
+    Post.find({}).sort({date: -1}).exec((error, resultado) => {
+        
+        if(error) throw error
+        
+        res.render('blog', {resultado});
+    })
 }
 
 let blogErasePost = () => {

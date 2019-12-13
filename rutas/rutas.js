@@ -27,6 +27,12 @@ let rutas = function(app, puerto, controlador){
     app.get('/editor', (req, res) => {
         res.render('blog-editor');
     });
+
+    //login
+    app.post('/login', (req, res) =>{
+        
+    })
+
     //PANOPTICO
     app.get('/panel', graficos.graficos);
 

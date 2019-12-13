@@ -9,7 +9,7 @@ html
                     |Seus Representantes
             div(class='row u-max-full-width')
                 div(class='four columns')
-                    h3
+                    p
                         |A 
                         span(class='default') Câmara Federal
                         |, ou Cámara Baixa do Congresso Nacional do Brasil
@@ -21,10 +21,8 @@ html
                     
                 div(class='eight columns')
                     canvas(id='deputados-genero')
-                    br
-                    br
-                    br
-                    h4(class='center')
+                   
+                    p(class='center')
                         |Os Deputados representam, ou deveriam representar, o povo brasileiro, entretanto, a Cãmara conta com 
                         span(class='default') #{datos.deputados.sexo.masculino} 
                         | deputados e 
@@ -33,13 +31,14 @@ html
                     
             hr
             div(class='row u-max-full-width')
-                h2
+                p
                     span(class='default')
                         |Atualmente há 
                         span(class='danger') #{datos.deputados.numPartidos} partidos 
                         | representados na Câmara Federal
                 div
-                    canvas(id='pesoPartidos')
+                    canvas(id='pesoPartidos' style="height: 600px")
+                
 
         
         
@@ -69,13 +68,15 @@ html
             |        },
             |
             |        // Configuration options go here
-            |        options: {}
+            |        options: {
+            |             maintainAspectRatio : false
+            |               }
             |    });
             |//generos da camara
             |   //genero na camara
             |   
-            |    var ctx = document.getElementById('deputados-genero').getContext('2d');
-            |    var piechart = new Chart(ctx, {
+            |    var ctx1 = document.getElementById('deputados-genero').getContext('2d');
+            |    var piechart = new Chart(ctx1, {
             |        // The type of chart we want to create
             |        type: 'doughnut',
             |        
@@ -99,3 +100,5 @@ html
             |            legend: { display: false}   
             |            }
             |    });
+            |
+            |
