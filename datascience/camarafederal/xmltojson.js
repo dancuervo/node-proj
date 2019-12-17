@@ -1,11 +1,10 @@
+//requires
+const parseString = require('xml2js').parseString;
+const fs = require('fs');
+//
 
-let xmlToJson = (xml) => {
-
-    //requires
-    const parseString = require('xml2js').parseString;
-    const fs = require('fs');
-    //
-
+module.exports = (xml) => {
+    
     //modulo para lidiar con error unexpected token at position 0
     let read = (xml) => {
         fs.readFile(xml,
@@ -21,19 +20,28 @@ let xmlToJson = (xml) => {
     let parse = (data) => {
         parseString(
             data,
-            { trim: true, explicitArray: false},
+            { trim: true, explicitArray: false },
             (error, data) => {
 
                 if (error) throw error
 
-                let outJson = `./json/camaraFederal-camaraFederal-11-12-2019.json`;
-                write(data, outJson);
+                //string titulo destino
+                let date = new Date();
+                let dia = date.getDate();
+                let mes = 1 + date.getMonth();
+                let ano = date.getFullYear();
+                let formato = 'json'
+
+                title = `./${formato}/camaraFederal-0-${dia}-${mes}-${ano}.${formato}`;
+
+                //let outJson = title;
+                write(data, title);
             });
     }
 
-    let write = (data, outJson) => {
+    let write = (data, title) => {
         fs.writeFile(
-            outJson,
+            title,
             JSON.stringify(data),
             (error) => { if (error) throw error }
         );
@@ -41,11 +49,5 @@ let xmlToJson = (xml) => {
     }
 
     read(xml)
-}
 
-let xml = './xml/camaraFederal-0-11-12-2019.xml';
-xmlToJson(xml);
-
-module.exports = {
-    xmlToJson
 }
