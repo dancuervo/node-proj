@@ -22,8 +22,7 @@ const fetchDeputadosFed = fetch(url)
                 resultado,
                 (error) => {if(error) throw error}
             );
-            let xmljs = require('./xmltojson').parse;
-            xmljs(title);
+            console.log(`\n########################\nXML guardado!\n########################\n`);
 
     })
     .catch( (error)=>{ console.log(error); });

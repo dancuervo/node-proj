@@ -1,10 +1,10 @@
 //funciones de control de la app
 //requires Blog Model
-const Post = require('../models/entradaBlog');
+const Post = require('../models/entradaBlogModel');
 
 
 let blogNewPost = (req, res) => {
-    console.log(req.body);
+    
     let post = new Post();
 
         post.author = req.body.autor,
@@ -12,7 +12,7 @@ let blogNewPost = (req, res) => {
         post.title = req.body.titulo,
         post.post = req.body.post,
         post.tags = req.body.tags
-        console.log(post);
+        
         post.save((err) => {
             if(err) return console.error(err);
           });
