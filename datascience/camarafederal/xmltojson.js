@@ -3,21 +3,28 @@ const parseString = require('xml2js').parseString;
 const fs = require('fs');
 //
 
-module.exports = (xml) => {
+module.exports = () => {
     
+    let readTempFile = () => {
+        fs.readFile(
+            './xml/temp.txt',
+            (error, data) => {if (error) {throw error}
+             else { readXml(data) }
+            });
+    }
     //modulo para lidiar con error unexpected token at position 0
-    let read = (xml) => {
-        fs.readFile(xml,
+    let readXml = (data) => {
+        fs.readFile(data,
             (error, data) => {
 
                 if (error) throw error
 
                 data.toString().replace("\ufeff", "");
-                parse(data);
+                parseToJson(data);
             })
     }
     //https://github.com/Leonidas-from-XIV/node-xml2js/issues/367 no crear array de values => explicitArray: false
-    let parse = (data) => {
+    let parseToJson = (data) => {
         parseString(
             data,
             { trim: true, explicitArray: false },
@@ -35,19 +42,21 @@ module.exports = (xml) => {
                 title = `./${formato}/camaraFederal-0-${dia}-${mes}-${ano}.${formato}`;
 
                 //let outJson = title;
-                write(data, title);
+                writeJson(data, title);
             });
     }
 
-    let write = (data, title) => {
+    let writeJson = (data, title) => {
         fs.writeFile(
             title,
             JSON.stringify(data),
             (error) => { if (error) throw error }
         );
         console.log('#################\nJSON saved to file!\n#################')
+        fs.unlink('./xml/temp.txt', (error) => {if (error) throw error })
+        console.log('#################\nTemp erased!\n#################')
     }
 
-    read(xml)
+    readTempFile()
 
 }

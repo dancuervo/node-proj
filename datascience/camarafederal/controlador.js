@@ -3,16 +3,10 @@ let fetchxml = require('./fetchDeputadosFed')
 let xmlToJson = require('./xmltojson')
 //let procesajson = require('./procesajson').procesajson
 
-let recupera = (url) => {
-    return new Promise((resolve, reject) => {
-        fetchxml(url)
-    })
+
+let control = (url) => {
+    
+    fetchxml(url)
+    setTimeout(() => { xmlToJson();}, 3000)
 }
-
-//.then((result) => {console.log(`Resultado: ${result}`)})
-//.then(xmlToJson)
-//.catch(error => {console.log(error)})
-
-recupera(url)
-.then(response => console.log('fasdf'+response))
-.catch(error => {console.log(error)})
+control(url)

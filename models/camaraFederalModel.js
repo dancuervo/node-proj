@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 mongoose.connect('mongodb://127.0.0.1:27017/13andar', {useNewUrlParser: true});
   
     // define Schema
-const camaraFedSchema = Schema({
+const schema = Schema({
     camara: JSON,
     dataConsulta: Date,
     numPartidos: Number,
@@ -14,7 +14,7 @@ const camaraFedSchema = Schema({
   // compile schema to model
 
 //module.exports = mongoose.model('camara', camaraFedSchema, 'dataScience');
-let Sh = mongoose.model('Camara', camaraFedSchema, 'dataScience');
+let Sh = mongoose.model('Camara', schema, 'dataScience');
 
 let cam = {
     'camara':[{'hey':'ho1'},{'hey':'ho5'},{'hey':'ho7'}],

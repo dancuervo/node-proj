@@ -17,13 +17,29 @@ module.exports = (url) => {
     let title = `./${formato}/camaraFederal-0-${dia}-${mes}-${ano}.${formato}`
 
     let writeFetch = (response) => {
-        return new Promise((resolve, reject)=>{
-            fs.writeFile(title, response, (error) => {if(error) reject(error)} )
-            console.log(`\n########################\nXML guardado: ${title}\n########################\n`);    
-            return resolve(title)
+        return new Promise((reject, resolve) =>{
+            fs.writeFile(title, response, (error) => {
+                if(error) return reject(error)
+                
+                return resolve(writeTemp(title))
+            });
+        })           
+    }
+    //almacena titulo del archivo para el próximo módulo
+    let writeTemp = (title) => {
+        return new Promise((reject, resolve)=>{
+            fs.writeFile('./xml/temp.txt', title, (error) => {
+                    
+                    if (error) { return reject(error)
+                    }else{
+                        console.log(`\n########################\nTemp created: ${title}\n########################\n`)
+                        return resolve('Success')
+                    }
+            })
         })
     }
     
+    ////////////////////////////////////////////////////////////////////////////////////
     let status = (response) => {
             if (response.status >= 200) {
                 return Promise.resolve(response);
@@ -34,20 +50,18 @@ module.exports = (url) => {
     let text = (response) => {
         return response.text()
     }
-
+    ////////////////////////////////////////////////////////////////////////////////////
     let fechData = (url) => {
-        return new Promise((resolve, reject) => {
+        
         fetch(url)
         .then(status)
         .then(text)
         .then((response) => {
-                writeFetch(response).then((r) => {resolve(r)})
+                writeFetch(response)
             })
         .catch( (error)=> { reject(error) });   
-        })
+        }
         
-    }
-
     fechData(url)
 }
  

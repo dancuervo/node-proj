@@ -799,27 +799,6 @@
     </comissoes>
   </deputado>
   <deputado>
-    <ideCadastro>74273</ideCadastro>
-    <codOrcamento>1581</codOrcamento>
-    <condicao>Titular</condicao>
-    <matricula>349</matricula>
-    <idParlamentar>1637198</idParlamentar>
-    <nome>JEFFERSON ALVES DE CAMPOS</nome>
-    <nomeParlamentar>JEFFERSON CAMPOS</nomeParlamentar>
-    <urlFoto>http://www.camara.gov.br/internet/deputado/bandep/74273.jpg</urlFoto>
-    <sexo>masculino</sexo>
-    <uf>SP</uf>
-    <partido>PSB</partido>
-    <gabinete>346</gabinete>
-    <anexo>4</anexo>
-    <fone>3215-5346</fone>
-    <email>dep.jeffersoncampos@camara.leg.br</email>
-    <comissoes>
-      <titular />
-      <suplente />
-    </comissoes>
-  </deputado>
-  <deputado>
     <ideCadastro>74262</ideCadastro>
     <codOrcamento>1527</codOrcamento>
     <condicao>Titular</condicao>
@@ -10768,6 +10747,27 @@
     <anexo>4</anexo>
     <fone>3215-5710</fone>
     <email>dep.dr.goncalo@camara.leg.br</email>
+    <comissoes>
+      <titular />
+      <suplente />
+    </comissoes>
+  </deputado>
+  <deputado>
+    <ideCadastro>178982</ideCadastro>
+    <codOrcamento>3709</codOrcamento>
+    <condicao>Suplente</condicao>
+    <matricula>550</matricula>
+    <idParlamentar>1638737</idParlamentar>
+    <nome>LUIZ LAURO FERREIRA FILHO</nome>
+    <nomeParlamentar>LUIZ LAURO FILHO</nomeParlamentar>
+    <urlFoto>http://www.camara.gov.br/internet/deputado/bandep/178982.jpg</urlFoto>
+    <sexo>masculino</sexo>
+    <uf>SP</uf>
+    <partido>PSDB</partido>
+    <gabinete>346</gabinete>
+    <anexo>4</anexo>
+    <fone>3215-5346</fone>
+    <email>dep.luizlaurofilho@camara.leg.br</email>
     <comissoes>
       <titular />
       <suplente />
